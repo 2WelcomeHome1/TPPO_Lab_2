@@ -24,14 +24,14 @@
 - Отключить вентилятор
 - Получить помощь
 
-[Image](https://github.com/2WelcomeHome1/TPPO_Lab_2/blob/main/image.png)
+![[alt text](example.com/logo.png)](https://github.com/2WelcomeHome1/TPPO_Lab_2/blob/main/image.png?raw=true)
+
 
 Помимо использования кнопок в веб интерфейсе, управление вентилятором возможно с помощью клиентского приложения, поддерживающего передачу HTTP-запросов (curl). Пример запросов представлен ниже:
 
 - curl -d "angle=110" -X POST http://ip:port/set_angle
 - curl -d "speed=10" -X POST http://ip:port/set_speed
 - curl http://ip:port/get_fan_info
-- curl http://ip:port/help  
 - curl -X POST  http://ip:port/stop  
 
 
