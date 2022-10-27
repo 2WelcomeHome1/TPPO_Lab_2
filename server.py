@@ -326,7 +326,7 @@ print ('Enter port')
 port = input()
 ip = ip_port_checker.ip_checker(ip)
 port = ip_port_checker.port_checker(port)
-print (ip, port)
+print(ip, ':', port)
 
 ## Start a socket cycle ##
 socket_server = Thread (target = socket_server.create_socket, args = (ip, port))
@@ -345,9 +345,16 @@ clients_lock = thread.Lock()
 check_file_th = Thread (target = check_file, args = ())
 check_file_th.start ()
 
-
+time.sleep(0.1)
 ## Create Flask server ##
 app = Flask(__name__)
+print('Enter Flask IP')
+flask_ip = input()
+print ('Enter Flask port')
+flask_port = input()
+flask_ip = ip_port_checker.ip_checker(flask_ip)
+flask_port = ip_port_checker.port_checker(flask_port)
+print(flask_ip, ':', flask_port)
 
 @app.route("/")
 def main_page():
@@ -429,4 +436,4 @@ def stop():
 
 
 ## Start flask server ##
-app.run(host = "192.168.1.52", port = 8321, use_reloader=False)  
+app.run(host = flask_ip, port = flask_port, use_reloader=False)  
